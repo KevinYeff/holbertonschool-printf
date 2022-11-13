@@ -1,0 +1,69 @@
+.Dd 12/11/22               \" DATE
+.Dt _PRINTF 3      \" Program name and manual section number
+.Os Nivek
+.Sh NAME                 \" Section Header - required - don't modify
+.Nm _printf - format and print data
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+.Nm _printf \fB FORMAT\fR
+.Op \fB ARGUMENT \fR             \" [-abcd]
+\fB . . . \fR
+
+
+.B \fB #include "main.h" \fR
+
+.B \fB int _printf(const char *
+.I format, \fR
+.B  . . .);
+
+.Sh DESCRIPTION
+.Nm _printf() \" Section Header - required - don't modify
+.\ft Prints to the standard output under the control of a format string that specifies how subsequent arguments are converted for output.
+
+.Sh Format string
+.Pp
+    The format string is composed of 0 or more directives
+    (ordinary characters that are not %),
+    which are copied to the output stream.
+.Pp
+    The format string is also composed of conversion specifications,
+    each of which result in fetching zero or more subsequent arguments.
+.Pp
+    Each conversion specification is introduced by the character %
+    and ends with the conversion specifier.
+.Pp
+    The argument must correspond properly with the conversion specifier.
+    By default, the arguments are used in the order given.
+
+
+.Sh Conversion Specifiers
+    A character that specifies the type of conversion to be applied.
+    The conversion specifiers and their meanings are:
+.Pp
+    \fB c :\fR The int argument is converted to an \fI unsigned char \fR,
+    then the resulting character is written.
+.Pp
+    \fB s :\fR The \fI const char *\fR argument is expected to be a pointer
+    to an array of character type (pointer to a string).
+    Characters from the array are written up to a terminating null byte,
+    but do ot include the terminating null byte.
+.Pp
+    \fB d, i :\fR The int argument is converted to signed decimal notation.
+.Pp
+    \fB % :\fR  A '%' is written but no argument is converted.
+    The complete version specification is '%%'
+.Pp
+
+.Sh Return value
+    On successful return, these functions return the number of characters
+    printed, excluding the null byte used to end output to strings.
+.Pp
+    If an output error is encountered, a negative value is returned.
+.El                      \" Ends the list
+
+.Sh SEE ALSO
+
+.Xr printf(3)
+.Sh BUGS
+No known bugs.
+.Sh AUTHOR
+Kevin Espinoza.
