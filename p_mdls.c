@@ -6,7 +6,7 @@
  * Return:     1 if success.
  */
 
-int p_mdls(va_lsit list __attribute__((unused)))
+int p_mdls(va_list list __attribute__((unused)))
 {
 	_putchar('%');
 	return (1);
